@@ -1,3 +1,4 @@
+import { resolve } from "q";
 
 // ref: https://umijs.org/config/
 export default {
@@ -22,4 +23,16 @@ export default {
       },
     }],
   ],
+  alias: {
+    '@': resolve(__dirname, './src')
+  },
+  proxy: {
+    '/api': {
+      target: '',
+      changeOrigin: true,
+      pathRewrite: {
+        '^/api': ''
+      }
+    }
+  }
 }
