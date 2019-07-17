@@ -1,10 +1,11 @@
 import styles from './index.css';
 
-function BasicLayout(props) {
+function BasicLayout({ children, location }) {
+  console.log('BasicLayout', children)
+  console.log('BasicLayout location', location)
   return (
     <div className={styles.normal}>
-      <h1 className={styles.title}>Yay! Welcome to umi!</h1>
-      {props.children}
+      {children}
     </div>
   );
 }
