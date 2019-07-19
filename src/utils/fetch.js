@@ -7,28 +7,31 @@ export default async (url, options) => {
   /**
    * fetch 中options配置
    */
+  console.log('options', options)
   const defaultOptions = {
     // 跨域
     mode: 'cors',
     cache: 'default',
-    // 发送包含凭证请求 即：cookies
+    // 强制加入凭据头 即：cookies
     credentials: 'include'
   }
-  const newOptions = {...defaultOptions, ...options}
+  let newOptions = {...defaultOptions, ...options}
   const { method, body, headers } = newOptions
   if (['POST', 'PUT', 'DELETE'].includes(method)) {
-    if (body instanceof FormData) {
+    const { data } = newOptions
+    if (data instanceof FormData) {
       newOptions.headers = {
         ...headers,
         Accept: 'application/json'
       }
+      newOptions.body = data 
     } else {
-      newOptions = {
+      newOptions.headers = {
         ...headers,
         Accept: 'application/json',
         'Content-Type': 'application/json; charset=utf-8'
       }
-      newOptions.body = JSON.stringify(newOptions.body)
+      newOptions.body = JSON.stringify(data)
     }
   }
 
@@ -47,16 +50,18 @@ export default async (url, options) => {
     })
     .then(res => {
       if (!(newOptions.method === 'DELETE' || res.status === 204)) {
-        const { data: { alertDesc }, status } = res
+        const { data, message, status } = res
         if (status !== 0) {
-          message.error(alertDesc || '无权限！')
+          message.error(message || '无权限！')
         }
       }
+      return res
     })
     .catch(e => {
       const { name: status } = e
       if (status === 401) {}
     })
 
+    return response
 
 }
