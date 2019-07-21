@@ -1,14 +1,11 @@
 import styles from './index.less'
 import Basic from './Basic/index'
 
-function BasicLayout({ children, location }) {
-  console.log('BasicLayout', children)
-  console.log('BasicLayout location', location)
+export default ({ children, location }) => {
+  console.log('layouts children', children)
   return (
-    <div className={styles.normal}>
-      {children}
+    <div>
+      <Basic>{ children }</Basic>
     </div>
-  );
+  )
 }
-
-export default BasicLayout;
