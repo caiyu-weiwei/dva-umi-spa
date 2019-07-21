@@ -3,5 +3,6 @@ module.exports = {
     pathname: '/login',
     search: '',
     state: {}
-  }
+  },
+  projectName: '数据管理'
 }

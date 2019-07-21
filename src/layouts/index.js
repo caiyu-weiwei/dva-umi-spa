@@ -1,4 +1,5 @@
-import styles from './index.css';
+import styles from './index.less'
+import Basic from './Basic/index'
 
 function BasicLayout({ children, location }) {
   console.log('BasicLayout', children)
