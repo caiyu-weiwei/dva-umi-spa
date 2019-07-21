@@ -1,14 +1,16 @@
+import { Layout } from 'antd'
 import styles from './index.less'
-import { projectName } from '@/utils/config.js'
+import GlobalFooter from '@/layouts/components/GlobalFooter/index.js'
 
+const { Content, Footer } = Layout
 export default ({ children, location }) => {
   console.log('basic children', children)
   return (
-    <div className = {styles.loginWrapper}>
-      <div className={styles.loginBox}>
-          <h2 className={styles.projectName}>{ projectName }</h2>
-          <div>{ children }</div>
-      </div>
-    </div>
+    <Layout className = {styles.loginWrapper}>
+      <Content className={styles.loginBox}>{ children }</Content>
+      <Footer>
+        <GlobalFooter></GlobalFooter>
+      </Footer>
+    </Layout>
   )
 }
