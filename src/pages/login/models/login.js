@@ -12,14 +12,13 @@ export default {
 
   effects: {
     *login({ payload }, { call, put }) {
-      console.log('effects login payload', payload)
       let { password } = payload
       payload = {...payload, password: Encrypt(password) }
-      console.log('effects login Encrypt(password)', payload)
       const { message, status } = yield call(api.login, payload)
       if (status === 0) {
-        message.success(message)
-        router.push('/sys')
+        message
+          .success(message, 1)
+          .then(() => router.push('/sys'))
       }
     }
   }
