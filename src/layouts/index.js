@@ -1,11 +1,11 @@
 import styles from './index.less'
-import Basic from './Basic/index'
+import BasicLayout from './BasicLayout/index'
 
 export default ({ children, location }) => {
   console.log('layouts children', children)
   return (
     <div>
-      <Basic>{ children }</Basic>
+      <BasicLayout>{ children }</BasicLayout>
     </div>
   )
 }
