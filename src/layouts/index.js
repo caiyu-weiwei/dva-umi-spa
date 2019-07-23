@@ -1,6 +1,7 @@
 import styles from './index.less'
 import BasicLayout from './BasicLayout/index'
-
+import PlayformLayout from './PlayformLayout/index'
+ 
 export default ({ children, location }) => {
   const { pathname } = location
   if (pathname === '/' ||
@@ -11,4 +12,9 @@ export default ({ children, location }) => {
           </div>
         )
       }
+  return (
+    <div className={ styles.normal }>
+      <PlayformLayout></PlayformLayout>
+    </div>
+  )
 }
