@@ -25,5 +25,6 @@ module.exports = {
       href: 'https://ant.design',
       blankTarget: true,
     }
-  ]
+  ],
+  copyright: '2019weiwei888@163.com'
 }

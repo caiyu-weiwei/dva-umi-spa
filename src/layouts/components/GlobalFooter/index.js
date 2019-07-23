@@ -1,18 +1,24 @@
-import { footerContent } from '@/utils/config.js'
+import { Icon } from 'antd'
+import { footerContent, copyright } from '@/utils/config.js'
+import styles from './index.less'
 export default () => {
   return (
-    <footer>
-      <div>
+    <footer className={ styles.footerWrapper }>
+      <div className={ styles.footerBox }>
         {
-          footerContent.map(content => (
+          footerContent && footerContent.map(content => (
             <a
+              className={ styles.content }
               key={content.key}
               title={content.title}
-              target={content.blankTarget}
+              target={content.blankTarget ? '_blank' : '_self'}
               href={content.href}
-            ></a>
+            >{ content.title }</a>
           ))
         }
+        <div className={styles.copyright}>
+          Copyright <Icon type="copyright"/> { copyright }
+        </div>
       </div>
     </footer>
   )
