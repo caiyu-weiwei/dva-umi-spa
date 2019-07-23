@@ -5,7 +5,7 @@ export default ({ children, location }) => {
   console.log('layouts children', children)
   return (
     <div>
-      <Basic>{ children }</Basic>
+      <Basic>{ children }</Basic>
     </div>
   )
 }
