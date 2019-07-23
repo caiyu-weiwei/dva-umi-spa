@@ -1,5 +1,8 @@
 import { connect } from 'dva'
 import Login from './components/Login/index'
+import { Fragment } from 'react'
+import { projectName } from '@/utils/config.js'
+import styles from './index.less'
 
 const login = ({ dispatch }) => {
 
@@ -12,7 +15,11 @@ const login = ({ dispatch }) => {
   }
 
   return (
-    <Login handleSubmit={ handleSubmit } />
+    <div className={ styles.content }>
+      <h2 className ={ styles.projectName }>{ projectName }</h2>
+      <Login className={ styles.login } handleSubmit={ handleSubmit } />
+    </div>
+    
   )
 }
 
