@@ -1,4 +1,3 @@
-import { Fragment } from 'react'
 import { Layout } from 'antd'
 import styles from './index.less'
 import GlobalFooter from '@/layouts/components/GlobalFooter/index.js'
