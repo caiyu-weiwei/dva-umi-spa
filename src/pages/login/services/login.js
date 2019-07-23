@@ -1,7 +1,7 @@
 import fetch from '@/utils/fetch'
 
 export const login = (payload) => {
-  fetch('/login', {
+  return fetch('/login', {
     method: 'POST',
     data: {
       ...payload

@@ -1,5 +1,5 @@
 import fetch from 'dva/fetch'
-import { message } from 'antd'
+import { notification } from 'antd'
 import router from 'umi/router'
 
 
@@ -7,7 +7,6 @@ export default async (url, options) => {
   /**
    * fetch 中options配置
    */
-  console.log('options', options)
   const defaultOptions = {
     // 跨域
     mode: 'cors',
@@ -50,9 +49,12 @@ export default async (url, options) => {
     })
     .then(res => {
       if (!(newOptions.method === 'DELETE' || res.status === 204)) {
+        console.log('登录有问题', res)
         const { data, message, status } = res
         if (status !== 0) {
-          message.error(message || '无权限！')
+          notification['error']({
+            message: message || '无权限！'
+          })
         }
       }
       return res

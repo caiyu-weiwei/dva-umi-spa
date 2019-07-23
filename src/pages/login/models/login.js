@@ -1,3 +1,5 @@
+import { message, notification } from 'antd'
+import router from 'umi/router'
 import * as api from '../services/login'
 import { Encrypt } from '@/utils/CryptoJS.js'
 export default {
@@ -14,8 +16,11 @@ export default {
       let { password } = payload
       payload = {...payload, password: Encrypt(password) }
       console.log('effects login Encrypt(password)', payload)
-      const response = yield call(api.login, payload)
-      console.log('effects login ', response)
+      const { message, status } = yield call(api.login, payload)
+      if (status === 0) {
+        message.success(message)
+        router.push('/sys')
+      }
     }
   }
 }
