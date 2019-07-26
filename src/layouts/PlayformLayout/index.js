@@ -12,7 +12,6 @@ class PlayformLayout extends PureComponent {
   }
 
   componentDidMount() {
-    console.log('')
     const { dispatch } = this.props
     dispatch({
       type: 'menu/getMenuData',
@@ -21,11 +20,11 @@ class PlayformLayout extends PureComponent {
   }
 
   render() {
-    const { children } = this.props
+    const { children, menu: menuData } = this.props
     return (
       <Layout className={styles.playfromWrapper}>
         <Sider>
-          <Menu></Menu>
+          <Menu menuData={ menuData }></Menu>
         </Sider>
         <Layout>
           <Header>Header</Header>

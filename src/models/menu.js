@@ -16,7 +16,7 @@ export default {
   effects: {
     *getMenuData({ payload }, { call, put }) {
       const { data } = yield call(api.menu, payload)
-      console.log('getMenuData', data)
+      console.log('getMenuData effects', data)
       yield put({
         type: 'save',
         payload: data
