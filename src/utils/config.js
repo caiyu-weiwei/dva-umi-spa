@@ -5,7 +5,7 @@ module.exports = {
     search: '',
     state: {}
   },
-  projectName: '数据系统',
+  projectName: '数据可视化',
   footerContent: [
     {
       key: 'UmiJS 首页',

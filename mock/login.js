@@ -1,8 +1,6 @@
 import { Decrypt } from '@/utils/CryptoJS.js'
-console.log('Decrypt', Decrypt)
 export default {
   'POST /login'(req, res) {
-    console.log('POST /login', req)
     const { body } = req
     const { username, password } = body
     if (Decrypt(password) === 'admin' && username === 'admin') {

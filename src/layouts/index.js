@@ -14,7 +14,7 @@ export default ({ children, location }) => {
       }
   return (
     <div className={ styles.normal }>
-      <PlayformLayout></PlayformLayout>
+      <PlayformLayout>{ children }</PlayformLayout>
     </div>
   )
 }

@@ -8,7 +8,11 @@ export default {
     isError: false
   },
 
-  reducers: {},
+  reducers: {
+    save(state, action) {
+      return {...state, ...action.payload}
+    }
+  },
 
   effects: {
     *login({ payload }, { call, put }) {
@@ -19,6 +23,13 @@ export default {
         message
           .success(message, 1)
           .then(() => router.push('/sys'))
+      } else {
+        yield put({
+          type: 'save',
+          payload: {
+            isError: true
+          }
+        })
       }
     }
   }
