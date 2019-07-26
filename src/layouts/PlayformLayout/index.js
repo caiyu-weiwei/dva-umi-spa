@@ -12,6 +12,7 @@ class PlayformLayout extends PureComponent {
   }
 
   componentDidMount() {
+    console.log('')
     const { dispatch } = this.props
     dispatch({
       type: 'menu/getMenuData',
@@ -39,6 +40,7 @@ class PlayformLayout extends PureComponent {
 }
 
 const mapStateToProps = (state) => {
+  console.log('getMenuData mapStateToProps', state)
   return state
 }
 

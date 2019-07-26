@@ -1,4 +1,4 @@
-import * as api from '../services/menu'
+import * as api from '@/services/menu'
 console.log('playform api', api)
 export default {
   namespace: 'menu',

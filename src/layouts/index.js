@@ -4,6 +4,7 @@ import PlayformLayout from './PlayformLayout/index'
  
 export default ({ children, location }) => {
   const { pathname } = location
+  console.log('pathname', pathname)
   if (pathname === '/' ||
       pathname === '/login') {
         return (
