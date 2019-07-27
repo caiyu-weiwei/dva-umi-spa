@@ -4,11 +4,18 @@ import styles from './index.less'
 import { Layout } from 'antd'
 import GlobalFooter from '@/layouts/components/GlobalFooter/index'
 import Menu from '@/layouts/components/Menu/index'
+import Context from '@/utils/Context.js'
 const { Header, Footer, Sider, Content }  = Layout
+
 
 class PlayformLayout extends PureComponent {
   constructor(props) {
     super(props)
+    this.state = {
+      theme: 'dark',
+      collapsed: false,
+      mode: 'inline'
+    }
   }
 
   componentDidMount() {
@@ -19,12 +26,27 @@ class PlayformLayout extends PureComponent {
     })
   }
 
+  getContext() {
+    const { location } = this.props
+    const { theme } = this.state
+    return {
+      location,
+      theme
+    }
+  }
+
   render() {
     const { children, menu: menuData } = this.props
-    return (
+    const { mode, collapsed } = this.state
+    const layout = (
       <Layout className={styles.playfromWrapper}>
         <Sider>
-          <Menu menuData={ menuData }></Menu>
+          <Menu 
+            menuData={ menuData }
+            mode={ mode }
+            collapsed={ collapsed }
+          >
+          </Menu>
         </Sider>
         <Layout>
           <Header>Header</Header>
@@ -35,12 +57,12 @@ class PlayformLayout extends PureComponent {
         </Layout>
       </Layout>
     )
+    return (
+      <Context.Provider value={this.getContext()}>
+        <div>{layout}</div>
+      </Context.Provider>
+    )
   }
 }
 
-const mapStateToProps = (state) => {
-  console.log('getMenuData mapStateToProps', state)
-  return state
-}
-
-export default connect(mapStateToProps)(PlayformLayout)
+export default connect()(PlayformLayout)

@@ -4,6 +4,7 @@ import { PureComponent } from 'react'
 export default (WarppedComponent) => {
   return class Consumer extends PureComponent {
    render() {
+     console.log('Consumer this.props', this.props)
      return (
        <Context.Consumer>
          {
