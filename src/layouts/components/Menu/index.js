@@ -22,6 +22,7 @@ class MainMenu extends PureComponent {
     if (!Array.isArray(menuData)) return []
     return menuData.map(menu => {
       if (menu === undefined) return false
+      console.log('row menu', menu)
       const { key, title, children } = menu
       if (Array.isArray(children) && children.length) {
         const subMenu = this.renderMenu(children)

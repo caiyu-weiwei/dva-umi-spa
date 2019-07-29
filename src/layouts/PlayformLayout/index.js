@@ -1,10 +1,11 @@
 import React, { PureComponent } from 'react'
 import { connect } from 'dva'
 import styles from './index.less'
-import { Layout } from 'antd'
+import { Layout, Icon } from 'antd'
 import GlobalFooter from '@/layouts/components/GlobalFooter/index'
 import Menu from '@/layouts/components/Menu/index'
 import Context from '@/utils/Context.js'
+import Logo from '@/layouts/components/Logo/index'
 const { Header, Footer, Sider, Content }  = Layout
 
 
@@ -35,12 +36,19 @@ class PlayformLayout extends PureComponent {
     }
   }
 
+  toggle = () => {
+    this.setState({
+      collapsed: !this.state.collapsed
+    })
+  }
+
   render() {
     const { children, menu: menuData } = this.props
     const { mode, collapsed } = this.state
     const layout = (
       <Layout className={styles.playfromWrapper}>
-        <Sider>
+        <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
+          <Logo/>
           <Menu 
             menuData={ menuData }
             mode={ mode }
@@ -49,7 +57,13 @@ class PlayformLayout extends PureComponent {
           </Menu>
         </Sider>
         <Layout>
-          <Header>Header</Header>
+          <Header style={{ background: '#fff', padding: 0 }}>
+          <Icon
+            className={styles.trigger}
+            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+            onClick={this.toggle}
+          />
+          </Header>
           <Content>{ children }</Content>
           <Footer className={ styles.footer }>
             <GlobalFooter></GlobalFooter>
