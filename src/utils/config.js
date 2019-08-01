@@ -1,4 +1,7 @@
-import { Icon } from 'antd'
+/**
+ * 项目的配置文件
+ * weiwei
+ */
 module.exports = {
   defaultIndexPage: {
     pathname: '/login',
@@ -27,6 +30,7 @@ module.exports = {
     }
   ],
   copyright: '2019weiwei888@163.com',
+  menuPermission: true,
   originMenuData: [
     {
       title: "gitDataV",

@@ -3,7 +3,7 @@ import memoizeOne from 'memoize-one'
 import { Menu, Icon } from 'antd'
 import { connect } from 'dva'
 import Consumer from '@/utils/Consumer'
-import isEqual from 'lodash/isEqual'
+import isEqual from 'lodash.isEqual'
 const { SubMenu, Item } = Menu
 
 class MainMenu extends PureComponent {
@@ -20,6 +20,7 @@ class MainMenu extends PureComponent {
 
   renderMenu = (menuData = []) => {
     if (!Array.isArray(menuData)) return []
+    console.log('menuData menuData', menuData)
     return menuData.map(menu => {
       if (menu === undefined) return false
       console.log('row menu', menu)
@@ -42,6 +43,7 @@ class MainMenu extends PureComponent {
       }
       return(
         <Item key={key}>
+          <Icon type="mail"/>
           <span>{title}</span>
         </Item>
       )
