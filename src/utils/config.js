@@ -101,7 +101,7 @@ module.exports = {
         {
           link: '/sys/echarts/yBar',
           key: 'yBar',
-          icon: 'icon-yBar',
+          icon: 'icon-bars',
           title: 'YBar'
         },
         {
@@ -112,19 +112,19 @@ module.exports = {
         },
         {
           link: '/sys/echarts/pie',
-          icon: 'pie-chart',
+          icon: 'icon-PieChart',
           title: 'Pie'
         },
         {
           link: '/sys/echarts/pieDoughnut',
           key: 'pieDoughnut',
-          icon: 'icon-pieDoughnut',
+          icon: 'icon-doughnut',
           title: 'PieDoughnut'
         },
         {
           link: '/sys/echarts/sankey',
           key: 'sankey',
-          icon: 'icon-sankey',
+          icon: 'icon-mapsankey',
           title: 'Sankey'
         },
       ]
@@ -163,7 +163,7 @@ module.exports = {
     {
       title: "iframe",
       key: "iframe",
-      icon: "icon-chuangkouwindow30",
+      icon: "icon-window",
       children: [
         {
           title: "bing",
@@ -196,5 +196,6 @@ module.exports = {
       key: "github",
       icon: "star"
     }
-  ]
+  ],
+  iconFontUrl: '//at.alicdn.com/t/font_1328766_38sdthxpgg9.js'
 }

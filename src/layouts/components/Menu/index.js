@@ -4,6 +4,7 @@ import { Menu, Icon } from 'antd'
 import { connect } from 'dva'
 import Consumer from '@/utils/Consumer'
 import isEqual from 'lodash.isEqual'
+import IconFont from '@/layouts/components/IconFont/index'
 const { SubMenu, Item } = Menu
 
 class MainMenu extends PureComponent {
@@ -24,7 +25,7 @@ class MainMenu extends PureComponent {
     return menuData.map(menu => {
       if (menu === undefined) return false
       console.log('row menu', menu)
-      const { key, title, children } = menu
+      const { key, title, children, icon } = menu
       if (Array.isArray(children) && children.length) {
         const subMenu = this.renderMenu(children)
         return (
@@ -32,7 +33,7 @@ class MainMenu extends PureComponent {
             key={key}
             title={
               <span>
-                <Icon type="mail" />
+                <IconFont type={icon} />
                 <span>{title}</span>
               </span>
             }
@@ -43,7 +44,7 @@ class MainMenu extends PureComponent {
       }
       return(
         <Item key={key}>
-          <Icon type="mail"/>
+          <IconFont type={icon}/>
           <span>{title}</span>
         </Item>
       )
