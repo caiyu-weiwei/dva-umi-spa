@@ -8,6 +8,11 @@ module.exports = {
     search: '',
     state: {}
   },
+  sysDefaultPage: {
+    pathname: '/sys/github',
+    search: '',
+    state: {}
+  },
   projectName: '数据可视化',
   footerContent: [
     {
@@ -197,5 +202,6 @@ module.exports = {
       icon: "star"
     }
   ],
-  iconFontUrl: '//at.alicdn.com/t/font_1328766_38sdthxpgg9.js'
+  iconFontUrl: '//at.alicdn.com/t/font_1328766_38sdthxpgg9.js',
+
 }
