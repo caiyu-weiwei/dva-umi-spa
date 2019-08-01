@@ -48,7 +48,7 @@ class PlayformLayout extends PureComponent {
     const layout = (
       <Layout className={styles.playfromWrapper}>
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <Logo/>
+          <Logo collapsible collapsed={this.state.collapsed}/>
           <Menu 
             menuData={ menuData }
             mode={ mode }
