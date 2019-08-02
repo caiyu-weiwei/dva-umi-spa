@@ -20,6 +20,7 @@ class Login extends PureComponent{
   render() {
     const { getFieldDecorator } = this.props.form
     const formLayout = 'horizontal'
+    const { loading } = this.props
     return (
       <div className={styles.loginForm}>
         <Form
@@ -58,7 +59,7 @@ class Login extends PureComponent{
             <a className={ styles.loginFormForgot } href="#">
               忘记密码
             </a>
-            <Button type="primary" htmlType="submit" className={ styles.loginFormButton }>
+            <Button type="primary" htmlType="submit" className={ styles.loginFormButton } loading={loading}>
               登录
             </Button>
            <a href="#">注册账户</a>

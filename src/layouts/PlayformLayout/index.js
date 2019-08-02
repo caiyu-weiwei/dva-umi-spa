@@ -58,11 +58,11 @@ class PlayformLayout extends PureComponent {
         </Sider>
         <Layout>
           <Header style={{ background: '#fff', padding: 0 }}>
-          <Icon
-            className={styles.trigger}
-            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-            onClick={this.toggle}
-          />
+            <Icon
+              className={styles.trigger}
+              type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+              onClick={this.toggle}
+            />
           </Header>
           <Content>{ children }</Content>
           <Footer className={ styles.footer }>

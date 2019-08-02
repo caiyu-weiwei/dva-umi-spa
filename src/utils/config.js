@@ -13,7 +13,7 @@ module.exports = {
     search: '',
     state: {}
   },
-  projectName: '数据可视化',
+  projectName: 'Dva-Umi',
   footerContent: [
     {
       key: 'UmiJS 首页',
