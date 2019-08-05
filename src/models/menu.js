@@ -1,5 +1,5 @@
 import * as api from '@/services/menu'
-import { menuDataFilter } from '@/utils/_'
+import { menuDataFilter, flattenMenuData } from '@/utils/_'
 import { originMenuData, menuPermission } from '@/utils/config'
 export default {
   namespace: 'menu',
@@ -20,12 +20,15 @@ export default {
       const { data } = yield call(api.menu, payload)
       console.log('getMenuData effects', data)
       const { menuData, differData } = menuDataFilter(originMenuData, data, menuPermission)
+      const flattenMenu = flattenMenuData(menuData)
       console.log('menuData', menuData)
+      console.log('flattenMenu', flattenMenu)
       yield put({
         type: 'save',
         payload: {
           menuData,
-          differData
+          differData,
+          flattenMenu
         }
       })
     }

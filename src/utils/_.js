@@ -1,13 +1,25 @@
 import _ from 'lodash'
 import memoizeOne from 'memoize-one'
 import isEqual from 'lodash.isEqual'
-import { menuPermission } from './config'
 /**
  * 将二维数组转化成一维数组
  * weiwei
  */
-export const _flattenMenuData = (menuData = [], pathArr = []) => {
+const _flattenMenuData = (menuData = [], routes = []) => {
+  if (Array.isArray(menuData)&&menuData.length) {
+    menuData.map(menu => {
+      const { link, children } = menu
+      if (Array.isArray(children)&&children.length) {
+        flattenMenuData(children, routes)
+      } else if (link) {
+        routes.push(menu)
+      }
+    })
+  }
+  return routes
 }
+
+export const flattenMenuData = memoizeOne(_flattenMenuData, isEqual)
 
 /**
  * 提取服务端返回的路由的key
@@ -31,8 +43,6 @@ const _refineMenuDataKey = (menuData = [], keys = []) => {
  */
 
 const _filter = (originMenuData, keys) => {
-  console.log('_filter originMenuData', originMenuData)
-  console.log('_filter keys', keys)
   const data = originMenuData.map(menu => {
     const { key, children } = menu
     if (Array.isArray(children) && children.length) {
