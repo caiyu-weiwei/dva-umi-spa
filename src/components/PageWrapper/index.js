@@ -4,6 +4,7 @@ import Context from '@/utils/Context'
 import PageHeader from '@/components/PageHeader/index'
 
 class Page extends PureComponent {
+  
   render() {
     const { children } = this.props
     return (

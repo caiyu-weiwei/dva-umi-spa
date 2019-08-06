@@ -5,15 +5,21 @@ import isEqual from 'lodash.isEqual'
  * 将二维数组转化成一维数组
  * weiwei
  */
-const _flattenMenuData = (menuData = [], routes = []) => {
+const _flattenMenuData = (menuData = [], pathtitles = []) => {
+  let routes = []
+  console.log('_flattenMenuData routes', routes)
   if (Array.isArray(menuData)&&menuData.length) {
     menuData.map(menu => {
-      const { link, children } = menu
+      const { icon, title, link, children } = menu
       if (Array.isArray(children)&&children.length) {
-        flattenMenuData(children, routes)
+        routes = routes.concat(flattenMenuData(children, pathtitles.concat({icon, title, link})))
       } else if (link) {
-        routes.push(menu)
+        routes.push({
+          ...menu,
+          pathtitles: pathtitles.concat({icon, title, link})
+        })
       }
+      console.log('_flattenMenuData routes menu', routes)
     })
   }
   return routes
