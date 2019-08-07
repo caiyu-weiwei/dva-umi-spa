@@ -6,7 +6,8 @@ export default {
 
   state: {
     menuData: [],
-    differData: []
+    differData: [],
+    flattenMenu: []
   },
 
   reducers: {
@@ -21,8 +22,8 @@ export default {
       console.log('getMenuData effects', data)
       const { menuData, differData } = menuDataFilter(originMenuData, data, menuPermission)
       const flattenMenu = flattenMenuData(menuData)
-      console.log('menuData', menuData)
-      console.log('flattenMenu', flattenMenu)
+      console.log('menuData models', menuData)
+      console.log('flattenMenu models', flattenMenu)
       yield put({
         type: 'save',
         payload: {

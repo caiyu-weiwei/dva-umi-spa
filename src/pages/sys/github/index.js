@@ -5,10 +5,6 @@ class Index extends PureComponent{
   render() {
     return (
       <Page
-        pathtitles={[{
-          title: 'gitDataV',
-          icon: 'github'
-        }]}
         title={'GitDataV'}
       >
         <div>github</div> 

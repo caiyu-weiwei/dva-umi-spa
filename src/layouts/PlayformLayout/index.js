@@ -30,6 +30,7 @@ class PlayformLayout extends PureComponent {
   getContext() {
     const { location } = this.props
     const { theme } = this.state
+    console.log('getContext location', location)
     return {
       location,
       theme
@@ -79,4 +80,4 @@ class PlayformLayout extends PureComponent {
   }
 }
 
-export default connect()(PlayformLayout)
+export default connect(({router: {location}}) => ({location}))(PlayformLayout)

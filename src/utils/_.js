@@ -7,7 +7,6 @@ import isEqual from 'lodash.isEqual'
  */
 const _flattenMenuData = (menuData = [], pathtitles = []) => {
   let routes = []
-  console.log('_flattenMenuData routes', routes)
   if (Array.isArray(menuData)&&menuData.length) {
     menuData.map(menu => {
       const { icon, title, link, children } = menu
@@ -19,7 +18,6 @@ const _flattenMenuData = (menuData = [], pathtitles = []) => {
           pathtitles: pathtitles.concat({icon, title, link})
         })
       }
-      console.log('_flattenMenuData routes menu', routes)
     })
   }
   return routes

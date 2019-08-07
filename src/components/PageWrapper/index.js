@@ -6,13 +6,15 @@ import PageHeader from '@/components/PageHeader/index'
 class Page extends PureComponent {
   
   render() {
-    const { children } = this.props
+    const { children, title, flattenMenu} = this.props
+    console.log('flattenMenu Page', flattenMenu)
+    
     return (
       <Context.Consumer>
         {
-          ({ location }) => (
+          ({location}) => (
             <div>
-              <PageHeader location={location}>
+              <PageHeader location={location} title={title} flattenMenu={flattenMenu}>
               </PageHeader>
               <div>{ children }</div>
             </div>
@@ -23,4 +25,4 @@ class Page extends PureComponent {
   }
 }
 
-export default connect()(Page)
+export default connect(({menu: {flattenMenu}}) => ({flattenMenu}))(Page)
