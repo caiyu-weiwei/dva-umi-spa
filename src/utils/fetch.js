@@ -1,6 +1,5 @@
 import fetch from 'dva/fetch'
 import { notification } from 'antd'
-import router from 'umi/router'
 
 
 export default async (url, options) => {

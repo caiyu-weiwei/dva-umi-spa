@@ -1,9 +1,11 @@
 import { Icon } from 'antd'
+import classnames from 'classnames'
 import { footerContent, copyright } from '@/utils/config.js'
 import styles from './index.less'
-export default () => {
+export default (props) => {
+  const { footerWrapperBgc } = props
   return (
-    <footer className={ styles.footerWrapper }>
+    <footer className={classnames(styles.footerWrapper, {[styles.footerWrapperBgc]: footerWrapperBgc})}>
       <div className={ styles.footerBox }>
         {
           footerContent && footerContent.map(content => (

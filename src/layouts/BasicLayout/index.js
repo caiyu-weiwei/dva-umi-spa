@@ -10,7 +10,7 @@ export default ({ children, location }) => {
       
       <Content className={ styles.loginContent }>{ children }</Content>
       <Footer className={ styles.loginFooter }>
-        <GlobalFooter></GlobalFooter>
+        <GlobalFooter footerWrapperBgc={true}></GlobalFooter>
       </Footer>
       
     </Layout>
