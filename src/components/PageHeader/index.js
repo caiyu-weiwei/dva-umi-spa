@@ -1,4 +1,5 @@
 import { PureComponent } from 'react'
+import { Icon } from 'antd'
 import Breadcrumb from './components/Breadcrumb/index'
 import styles from './index.less'
 class PageHeader extends PureComponent{
@@ -49,10 +50,12 @@ class PageHeader extends PureComponent{
     })
   }
   render() {
+    const { describtion } = this.props
     return (
       <div className={styles.pageHeader}>
         <Breadcrumb breadList={this.state.breadList}></Breadcrumb>
         <h2 className={styles.title}>{this.state.title}</h2>
+        <span><Icon type="info-circle" /> {describtion}</span>
       </div>
     )
   }

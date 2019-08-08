@@ -6,6 +6,7 @@ class Index extends PureComponent{
     return (
       <Page
         title={'GitDataV'}
+        desc={'gitDataV.desc'}
       >
         <div>github</div> 
       </Page>

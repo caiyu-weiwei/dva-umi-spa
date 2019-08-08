@@ -21,6 +21,9 @@ export default {
           /components\//,
         ],
       },
+      locale: {
+        default: 'zh-CN', // 默认语言
+      }
     }],
   ],
   alias: {

@@ -1,4 +1,3 @@
-import { message, notification } from 'antd'
 import router from 'umi/router'
 import * as api from '../services/login'
 import { Encrypt } from '@/utils/CryptoJS.js'
