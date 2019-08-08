@@ -1,11 +1,13 @@
 import { PureComponent } from 'react'
 import Breadcrumb from './components/Breadcrumb/index'
+import styles from './index.less'
 class PageHeader extends PureComponent{
 
   constructor() {
     super()
     this.state = {
-      breadList: []
+      breadList: [],
+      title: ''
     }
   }
 
@@ -13,45 +15,44 @@ class PageHeader extends PureComponent{
     isShow: true,
     homePage: {
       icon: 'home',
-      title: '首页'
+      title: '首页',
+      link: "/sys/github"
     }
   }
 
   componentDidMount() {
-    this.getFlattenMenu()
+    const { flattenMenu=[] } = this.props
+    console.log('componentDidMount flattenMenu', flattenMenu)
+    this.getFlattenMenu(flattenMenu)
   }
 
-  componentDidUpdate() {
-    // this.getFlattenMenu()
+  componentWillReceiveProps(newProps) {
+    console.log('componentWillReceiveProps', newProps)
+    const { flattenMenu=[] } = newProps
+    this.getFlattenMenu(flattenMenu)
   }
 
-  getFlattenMenu() {
-    const { homePage, location, flattenMenu, title } = this.props
-    console.log('PageHeader location', location)
+  getFlattenMenu(flattenMenu) {
+    const { homePage, location, title } = this.props
     const { pathname } = location
-    console.log('pathname', pathname)
-    console.log('flattenMenu PageHeader', flattenMenu)
-    console.log('title PageHeader', title)
-    console.log('homePage PageHeader', homePage)
     let breadList = []
     flattenMenu.map(menu => {
       if (menu instanceof Object && menu.link && menu.link === pathname) {
         console.log('flattenMenu menu', menu)
-        breadList.push(homePage)
-        breadList = [...breadList, ...menu.pathnametitles]
+        breadList = [...breadList.concat(homePage), ...menu.pathtitles]
         return
       }
     })
-    console.log('breadList', breadList)
     this.setState({
-      breadList: [...breadList]
+      breadList: [...breadList],
+      title
     })
   }
   render() {
-    
     return (
-      <div>
-        <Breadcrumb></Breadcrumb>
+      <div className={styles.pageHeader}>
+        <Breadcrumb breadList={this.state.breadList}></Breadcrumb>
+        <h2 className={styles.title}>{this.state.title}</h2>
       </div>
     )
   }
