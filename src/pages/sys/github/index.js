@@ -1,5 +1,7 @@
 import { PureComponent } from 'react'
 import Page from '@/components/PageWrapper/index'
+import ContentHeader from './components/ContentHeader/index'
+import styles from './index.less'
 class Index extends PureComponent{
 
   render() {
@@ -8,7 +10,9 @@ class Index extends PureComponent{
         title={'GitDataV'}
         desc={'gitDataV.desc'}
       >
-        <div>github</div> 
+        <div className={styles.pageContentWrapper}>
+          <ContentHeader/>
+        </div>
       </Page>
     )
   }
