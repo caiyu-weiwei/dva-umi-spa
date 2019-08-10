@@ -14,7 +14,7 @@ export default async (url, options) => {
     credentials: 'include'
   }
   let newOptions = {...defaultOptions, ...options}
-  const { method, body, headers } = newOptions
+  const { method, headers } = newOptions
   if (['POST', 'PUT', 'DELETE'].includes(method)) {
     const { data } = newOptions
     if (data instanceof FormData) {
@@ -48,8 +48,7 @@ export default async (url, options) => {
     })
     .then(res => {
       if (!(newOptions.method === 'DELETE' || res.status === 204)) {
-        console.log('登录有问题', res)
-        const { data, message, status } = res
+        const { message, status } = res
         if (status !== 0) {
           notification['error']({
             message: message || '无权限！'

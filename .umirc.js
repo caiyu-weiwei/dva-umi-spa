@@ -8,7 +8,10 @@ export default {
     ['umi-plugin-react', {
       antd: true,
       dva: true,
-      dynamicImport: false,
+      dynamicImport: {
+        webpackChunkName: true,
+        loadingComponent: './'
+      },
       title: 'dva-umi-spa',
       dll: false,
       
