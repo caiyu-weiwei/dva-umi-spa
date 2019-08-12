@@ -10,7 +10,7 @@ export default {
       dva: true,
       dynamicImport: {
         webpackChunkName: true,
-        loadingComponent: './'
+        loadingComponent: './components/PageLoading/index.js'
       },
       title: 'dva-umi-spa',
       dll: false,
